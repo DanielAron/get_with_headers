@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open URL with Headers</title>
+    <script>
+        function openURLWithHeaders() {
+            const url = 'https://tstdrv2456091.app.netsuite.com/app/login/oauth2/authorize.nl?client_id=c6e22d0ee5b5f769bc32c99a80ad85a1d05df2d41ef42e5a0bdfd60166e08b9f&redirect_uri=https%3A%2F%2Fplatform.panoply.io%2Fsources%2Fcallback.html&response_type=code&scope=rest_webservices&state=Gb50fW4HU2q9gpOH';
+            const headers = new Headers();
+            headers.append('client_id', '063ff281c2df90b14e85dcc15b0928f0a3d68a50eb38f113bde98dc908458418');
+            headers.append('redirect_uri', 'https%3A%2F%2Ffedericodonner.com');
+            headers.append('response_type', 'code');
+            headers.append('scope', 'rest_webservices');
+            headers.append('state', 'Gb50fW4HU2q9gpOH');
+
+            const init = {
+                method: 'GET',
+                headers: headers,
+                mode: 'no-cors'
+            };
+
+            fetch(url, init)
+                .then(response => response.blob())
+                .then(blob => {
+                    console.log(blob);
+                    const urlObject = URL.createObjectURL(blob);
+                    window.open(urlObject, '_blank');
+                })
+                .catch(error => console.error('Error opening the URL:', error));
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openURLWithHeaders()">Open URL with Headers</button>
+</body>
+</html>

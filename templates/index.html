@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open URL in New Tab</title>
+</head>
+<body>
+    <button id="openUrlBtn">Open URL in New Tab</button>
+    <script>
+        document.getElementById('openUrlBtn').addEventListener('click', function () {
+            window.location.href = "/redirect";
+        });
+    </script>
+</body>
+</html>
